@@ -1,3 +1,17 @@
+@keyframes ring{
+		0%{transform: rotate(5deg)}
+		2%{transform: rotate(-5deg);}
+		4%{transform: rotate(5deg);}
+		6%{transform: rotate(-5deg);}
+		8%{transform: rotate(5deg);}
+		10%{transform: rotate(-5deg);}
+		12%{transform: rotate(5deg);}
+		14%{transform: rotate(-5deg);}
+		16%{transform: rotate(5deg);}
+		18%{transform: rotate(-5deg)}
+		20, 100%{transform: rotate(0deg);}
+}
+
 html{
 	/*set default font size*/
 	font-size: 62.5%; /*10px*/
@@ -40,7 +54,6 @@ a:hover{
   font-size: 2.2rem;
 	padding-top:45px;
 	padding-bottom:45px;
-	text-indent: 10px;
 }
 
 .nav-link{
@@ -50,6 +63,7 @@ a:hover{
 	margin-right: 35px;
 	border-bottom:4px solid transparent;
 	font-weight:bold;
+	transition: border 0.5s ease;
 }
 
 .nav-link:hover{
@@ -94,9 +108,15 @@ a:hover{
 }
 
 .nav-item:last-child button{
+	position:relative;
 	background-color:#5f121a;
 	border-radius:50px;
 	cursor:pointer;
+	transition: 0.5s ease;
+}
+
+.fa-phone{
+	opacity:0;
 }
 
 /*---Hamburger Menu---*/
@@ -183,9 +203,8 @@ a:hover{
 	color:white;
 	font-size: 1.5vw;
 	font-weight:bold;
-	padding-top:25px;
-	padding-bottom:25px;
-	width:80%;
+	padding: 25px 50px 25px 50px;
+	border:none;
 	border-radius: 50px;
 	position:absolute;
 	bottom:0;
@@ -315,20 +334,6 @@ a:hover{
 	transition: all 0.5s;
 }
 
-.thumbnail:hover .overlay{
-	opacity:0.9;
-}
-
-.thumbnail:hover .caption{
-	transform: translateY(-650%);
-	color: white;
-	font-weight:400;
-}
-
-.thumbnail:hover .caption > span{
-	display:inline-block;
-}
-
 /*Quote section*/
 .quoteWrapper{
 	padding-right: 0;
@@ -374,6 +379,7 @@ a:hover{
 
 .quoteContainer .btn{
 	background-color: #ec192f;
+	border:none;
 	color:white;
 	font-weight:600;
 	font-size:1vw;
@@ -412,9 +418,13 @@ footer{
 	padding-bottom:75px;
 }
 
+.socialMedia span{
+	display:inline-block;
+	margin-left:25px;
+}
+
 .socialMedia img{
 	height:30px;
-	margin-left:50px;
 }
 
 .email{
@@ -424,17 +434,29 @@ footer{
 }
 
 .telephone{
-	font-size:4rem;
+	font-size:2vw;
+}
+
+.email{
+	font-size:1.5vw;
 }
 
 .footer--navigation span{
 	margin-left: 20px;
 }
 
+.footer--navigation a{
+	color:white;
+}
+
 /*----Media Queries----*/
 
 /* Extra small devices (phones, 600px and down) */
 @media screen and (max-width: 600px) {
+
+body{
+	backround-color:orange;
+}
 
 html{
 	font-size:0.5rem;
@@ -455,6 +477,7 @@ html{
 
 .nav-item{
 	padding:0;
+	text-indent: 10px;
 }
 
 .nav-link{
@@ -564,7 +587,7 @@ html{
 .quoteWrapper{
 	padding-right: 0;
 	padding-left:0;
-	margin-bottom:50px;
+	padding-bottom:0;
 	width:100%;
 }
 
@@ -647,6 +670,10 @@ html{
 	padding-right:20px;
 }
 
+.socialMedia span{
+	margin-left:0;
+}
+
 .telephone, .email{
 	font-size:2rem;
 }
@@ -670,6 +697,7 @@ html{
 
 	.nav-item{
 		padding:0;
+		text-indent: 10px;
 	}
 
 	.nav-link{
@@ -850,6 +878,10 @@ html{
 		padding-right:20px;
 	}
 
+	.socialMedia span{
+		margin-left:0;
+	}
+
 	.telephone, .email{
 		font-size:2rem;
 	}
@@ -876,6 +908,7 @@ html{
 
 	.nav-item{
 		padding:0;
+		text-indent: 10px;
 	}
 
 	.nav-link{
@@ -939,11 +972,21 @@ html{
 	}
 
 /* Carousel */
+
 .btn--red{
-	width:100%;
 	padding-top:20px;
 	padding-bottom:20px;
+	background: linear-gradient(to right, white 50%, #ec192f 50%);
+	background-position: bottom right;
+	background-size: 200%;
 }
+
+.btn--red:hover{
+	transition: all 0.75s ease;
+	color:#ec192f;
+	background-position: left bottom;
+}
+
 
 /*Our Services*/
 .ourServices--thumbnails .container{
@@ -956,6 +999,20 @@ html{
 
 .ourServices--thumbnails{
 	margin-bottom: 50px;
+}
+
+.thumbnail:hover .overlay{
+	opacity:0.9;
+}
+
+.thumbnail:hover .caption{
+	transform: translateY(-650%);
+	color: white;
+	font-weight:400;
+}
+
+.thumbnail:hover .caption > span{
+	display:inline-block;
 }
 
 /*Quote Section*/
@@ -989,6 +1046,18 @@ html{
 	height:20%;
 }
 
+.btn--maroon{
+	background: linear-gradient(to right, #5f121a 50%, #ec192f 50%);
+	background-position: bottom right;
+	background-size: 200%;
+	position:relative;
+}
+
+.btn--maroon:hover{
+	transition: all 0.75s ease;
+	background-position: left bottom;
+}
+
 /*Footer*/
 
 .footer--bottom{
@@ -1010,6 +1079,36 @@ html{
 	font-size:2rem;
 }
 
+.footer--contact .email, .footer--navigation a{
+	border-bottom: 4px solid transparent;
+}
+
+.footer--contact .email:hover, .footer--navigation a:hover{
+	transition: all 0.75s ease;
+	border-bottom: 4px solid lightgray;
+}
+
+.socialMedia span{
+	padding:5px 10px 5px 10px;
+	border:2px solid transparent;
+	border-radius: 10px;
+}
+
+.twitter:hover{
+	background-color: #55acee;
+	border-color:white;
+}
+
+.youtube:hover{
+	background-color: #cd201f;
+	border-color:white;
+}
+
+.facebook:hover{
+	background-color: #3b5999;
+	border-color:white;
+}
+
 }
 
 /* Large devices (laptops/desktops, 992px and up) */
@@ -1017,6 +1116,48 @@ html{
 	/*navigation*/
 	.nav-link{
 		margin-left:0;
+	}
+
+	.btn--text{
+		transition: all 0.75s ease;
+	}
+
+
+	.fa-phone{
+		animation: ring 3s infinite ease-in;
+		border: 2px dotted white;
+		padding:5px 15px 5px 15px;
+		border-radius: 100%;
+		position:absolute;
+		left:30%;
+		opacity:0;
+	}
+
+	.nav-item:last-child button:hover .btn--text{
+		opacity:0;
+	}
+
+	.nav-item:last-child button:hover .fa-phone{
+		opacity:1;
+		transition:all 0.5s ease;
+	}
+
+	.dropdown:hover .dropdown-menu{
+		display:block;
+	}
+
+	/*Carousel*/
+
+	.btn--red{
+		background: linear-gradient(to right, white 50%, #ec192f 50%);
+		background-position: bottom right;
+		background-size: 200%;
+	}
+
+	.btn--red:hover{
+		transition: all 0.75s ease;
+		color:#ec192f;
+		background-position: left bottom;
 	}
 
 	/*Our Services*/
@@ -1027,6 +1168,21 @@ html{
 	.caption{
 		padding:0;
 	}
+
+	.thumbnail:hover .overlay{
+		opacity:0.9;
+	}
+
+	.thumbnail:hover .caption{
+		transform: translateY(-650%);
+		color: white;
+		font-weight:400;
+	}
+
+	.thumbnail:hover .caption > span{
+		display:inline-block;
+	}
+
 
 	/*Quote Section*/
 
@@ -1039,21 +1195,48 @@ html{
 		height:20%;
 	}
 
-	/*Footer*/
-
-	.footer--bottom{
-		flex-direction: column;
-		justify-content: center;
-		font-size: 1.5rem;
+	.btn--maroon{
+		background: linear-gradient(to right, #5f121a 50%, #ec192f 50%);
+		background-position: bottom right;
+		background-size: 200%;
+		position:relative;
 	}
 
-	.spindogs{
-		padding-bottom:5%;
+	.btn--maroon:hover{
+		transition: all 0.75s ease;
+		background-position: left bottom;
 	}
 
-	.footer--contact{
-		padding-left:30px;
-		padding-right:30px;
+	/*footer*/
+
+	.footer--contact .email, .footer--navigation a{
+		border-bottom: 4px solid transparent;
+	}
+
+	.footer--contact .email:hover, .footer--navigation a:hover{
+		transition: all 0.75s ease;
+		border-bottom: 4px solid lightgray;
+	}
+
+	.socialMedia span{
+		padding:0px 20px 10px 20px;
+		border:2px solid transparent;
+		border-radius: 10px;
+	}
+
+	.twitter:hover{
+		background-color: #55acee;
+		border-color:white;
+	}
+
+	.youtube:hover{
+		background-color: #cd201f;
+		border-color:white;
+	}
+
+	.facebook:hover{
+		background-color: #3b5999;
+		border-color:white;
 	}
 
 
@@ -1061,5 +1244,108 @@ html{
 /* Extra large devices (large laptops and desktops, 1200px and up) */
 @media only screen and (min-width: 1200px) {
 
+/*navigation*/
+
+.btn--text{
+	transition: all 0.75s ease;
+}
+
+.nav-item:last-child button:hover .btn--text{
+	opacity:0;
+}
+
+.nav-item:last-child button:hover .fa-phone{
+	opacity:1;
+	transition:all 0.5s ease;
+}
+
+.dropdown:hover .dropdown-menu{
+	display:block;
+}
+
+
+.fa-phone{
+	animation: ring 3s infinite ease-in;
+	border: 2px dotted white;
+	padding:5px 15px 5px 15px;
+	border-radius: 100%;
+	position:absolute;
+	left:30%;
+	opacity:0;
+}
+
+/*Carousel*/
+
+.btn--red{
+	background: linear-gradient(to right, white 50%, #ec192f 50%);
+	background-position: bottom right;
+	background-size: 200%;
+}
+
+.btn--red:hover{
+	transition: all 0.75s ease;
+	color:#ec192f;
+	background-position: left bottom;
+}
+
+/*Our services*/
+.thumbnail:hover .overlay{
+	opacity:0.9;
+}
+
+.thumbnail:hover .caption{
+	transform: translateY(-650%);
+	color: white;
+	font-weight:400;
+}
+
+.thumbnail:hover .caption > span{
+	display:inline-block;
+}
+
+/*quote section*/
+
+.btn--maroon{
+	background: linear-gradient(to right, #5f121a 50%, #ec192f 50%);
+	background-position: bottom right;
+	background-size: 200%;
+	position:relative;
+}
+
+.btn--maroon:hover{
+	transition: all 0.75s ease;
+	background-position: left bottom;
+}
+
+/*footer*/
+.footer--contact .email, .footer--navigation a{
+	border-bottom: 4px solid transparent;
+}
+
+.footer--contact .email:hover, .footer--navigation a:hover{
+	transition: all 0.75s ease;
+	border-bottom: 4px solid lightgray;
+}
+
+.socialMedia span{
+	padding:0px 20px 10px 20px;
+	border:2px solid transparent;
+	border-radius: 10px;
+}
+
+.twitter:hover{
+	background-color: #55acee;
+	border-color:white;
+}
+
+.youtube:hover{
+	background-color: #cd201f;
+	border-color:white;
+}
+
+.facebook:hover{
+	background-color: #3b5999;
+	border-color:white;
+}
 
 }
