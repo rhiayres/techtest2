@@ -23,6 +23,11 @@ a:hover{
 	text-decoration: none;
 }
 
+button:focus, button:active{
+	outline:0;
+	border:none;
+}
+
 .container-fluid{
 	padding-left:0;
 	padding-right: 0;
@@ -63,10 +68,10 @@ a:hover{
 	margin-right: 35px;
 	border-bottom:4px solid transparent;
 	font-weight:bold;
-	transition: border 0.5s ease;
 }
 
 .nav-link:hover{
+	transition: border 0.5s ease;
   border-bottom:4px solid white;
   color:inherit;
 }
@@ -112,7 +117,6 @@ a:hover{
 	background-color:#5f121a;
 	border-radius:50px;
 	cursor:pointer;
-	transition: 0.5s ease;
 }
 
 .fa-phone{
@@ -126,7 +130,6 @@ a:hover{
 	height:2px;
 	display:block;
 	margin:7px;
-	transition: all 0.75s;
 }
 
 .navbar-toggler{
@@ -487,11 +490,11 @@ html{
 	border-bottom:none;
 	padding-top:10px;
 	padding-bottom:10px;
-	transition: all 0.5s;
 	border:none;
 }
 
 .nav-link:hover{
+	transition: all 0.5s;
 	background-color:white;
 	color:#ec192f;/*red*/
 	border:none;
@@ -707,11 +710,11 @@ html{
 		border-bottom:none;
 		padding-top:10px;
 		padding-bottom:10px;
-		transition: all 0.5s;
 		border:none;
 	}
 
 	.nav-link:hover{
+		transition: all 0.5s;
 		background-color:white;
 		color:#ec192f;/*red*/
 		border:none;
@@ -918,7 +921,6 @@ html{
 		border-bottom:none;
 		padding-top:10px;
 		padding-bottom:10px;
-		transition: all 0.5s;
 		border:none;
 	}
 
@@ -926,6 +928,7 @@ html{
 		background-color:white;
 		color:#ec192f;/*red*/
 		border:none;
+		transition: all 0.5s;
 	}
 
 	.nav-item:last-child .nav-link{
@@ -1118,13 +1121,8 @@ html{
 		margin-left:0;
 	}
 
-	.btn--text{
-		transition: all 0.75s ease;
-	}
-
 
 	.fa-phone{
-		animation: ring 3s infinite ease-in;
 		border: 2px dotted white;
 		padding:5px 15px 5px 15px;
 		border-radius: 100%;
@@ -1134,10 +1132,12 @@ html{
 	}
 
 	.nav-item:last-child button:hover .btn--text{
+		transition: all 0.75s ease;
 		opacity:0;
 	}
 
 	.nav-item:last-child button:hover .fa-phone{
+		animation: ring 3s infinite ease-in;
 		opacity:1;
 		transition:all 0.5s ease;
 	}
@@ -1246,17 +1246,15 @@ html{
 
 /*navigation*/
 
-.btn--text{
-	transition: all 0.75s ease;
-}
-
 .nav-item:last-child button:hover .btn--text{
+	transition: all 0.75s ease;
 	opacity:0;
 }
 
 .nav-item:last-child button:hover .fa-phone{
 	opacity:1;
 	transition:all 0.5s ease;
+	animation: ring 3s infinite ease-in;
 }
 
 .dropdown:hover .dropdown-menu{
@@ -1265,7 +1263,6 @@ html{
 
 
 .fa-phone{
-	animation: ring 3s infinite ease-in;
 	border: 2px dotted white;
 	padding:5px 15px 5px 15px;
 	border-radius: 100%;
